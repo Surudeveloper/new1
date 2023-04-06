@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Add Products - Finbot</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" href="framework/apps/fbpartners/css/bootstrap.min.css">
+	<link rel="stylesheet" href="framework/css/dropzone.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link
+		href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900|Roboto:100,300,400,500,700,900|Source+Sans+Pro:200,300,400,600,700,900"
+		rel="stylesheet">
+	<link rel="stylesheet" href="framework/apps/fbpartners/css/style.css">
+	<link href="framework/apps/fbpartners/css/select2.min.css" rel="stylesheet" />
+	<script src="framework/apps/fbpartners/js/News_config.js"></script>
+	<script src="https://cdn.ckeditor.com/4.9.2/standard-all/ckeditor.js"></script>
+	<style>
+		/* .nebgclore {
+    height: 985px;
+} */
+.nebgclore {padding: 15px !important;}
+
+		/* .nebgclore {
+			height: 1300px;
+		} */
+
+		.newbgcolo {
+			height: auto !important;
+		}
+
+		.force-overflow {
+			min-height: 50vh;
+		}
+		.audio a, .addoc a {
+    pointer-events: none !important;
+    cursor: none !important;
+}
+	</style>
+
+</head>
+
+<body>
+	<%- include .//partials/header %>
+
+
+	<div class="wrapper">
+
+
+		<main class="l-main bg-color">
+			<div class="content-wrapper content-wrapper--with-bg">
+				<%- include .//partials/leftmenu %>
+				<div class="content-wrapper">
+					<section class="content-header rightmains">
+						<div class="row allmanpads">
+							<div class="col-lg-12 col-md-12 col-xs-12 padmarse stepsbgs">
+								<h1>Add Products <span id="editinputs"> <i class="fa fa-pencil penslie"></i></span></h1>
+							</div>
+						</div>
+
+						<div class="row allmanpads bgnones lsdjeijns foepeas newujsldd">
+							<div class="col-lg-9 col-md-9 col-xs-12 newbgcolo">
+								<div class="adddcomnde">
+									<div>
+										<div class="">
+
+											<div class="row allmanpads">
+												<div class="col-lg-12 padmarse">
+
+													<div class="form-group">
+														<label for="Name" class="cols-sm-2 control-label">
+															Name</label>
+														<div class="cols-sm-10">
+															<div class="input-group">
+																<input type="text" class="form-control" name="Name"
+																	id="Name" data-valid="required"
+																	placeholder="Enter Name" />
+															</div>
+														</div>
+													</div>
+                                                    <div class="form-group">
+                                                        <label for="type">Type:</label><br>
+                                                        <select id="type" name="Type" style="box-sizing:content-box;">
+                                                        <option selected value="">-- Choose the Type --</option>
+                                                        <option value="Task">Task</option>
+                                                        <option value="Question">Question</option>
+                                                        <option value="Approve">Approve</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="stdate">Start Date :</label>
+                                                        <input type="date" id="stdate" name="Start_Date">
+                                                    </div><br>
+                                                        <div class="form-group">
+                                                            <label for="endate">End Date :</label>
+                                                            <input type="date" id="endate" name="End_Date">
+                                                        </div><br>
+													</div>
+													<div class="form-group">
+                                                        <label for="Summary">Summary:</label>
+                                                        <textarea name="Summary" id="Summary" cols="30" rows="4" style="border-radius: 4px;"
+                                                            placeholder="---Summary in brief---"></textarea>
+                                                    </div><br>
+                                                    <div class="form-group">
+                                                        <label for="tOwner">Task Owner:</label><br>
+                                                        <select id="tOwner" name="Type">
+                                                        <option selected value="">-- Choose the Owner --</option>
+                                                        <option value="Owner_1">Owner 1</option>
+                                                        <option value="Owner_2">Owner 2</option>
+                                                        <option value="Owner_3">Owner 3</option>
+                                                        <option value="Owner_4">Owner 4</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div>
+                                                        <label for="declarations" text-align="left"><b>Warning:</b></label>
+                                                        <input type="checkbox" id="declarations" name="declarations" style="cursor: pointer;" required>
+                                                        <label for="declarations" style="font-size: 12px;"> Click here if the above information is correct.</label>
+                                                    </div><br><br>
+													
+													<div class="modal-footer col-lg-12"
+														style="border:none !important; padding-bottom: 0 !important;padding-right: 0 !important;">
+														<div class="form-group">
+															<button type="submit" class="btn btn-success cancelbtn"	onclick="CreateNewProduct();" data-original-title=""
+																title="">Save</button>
+                                                                <a href="/createNewProduct" type="submit" class="btn btn-warning savebtn">Cancel</a>
+															<!-- <button type="submit" class="btn btn-warning savebtn"  >Cancel</button>	 -->
+															<button type="submit" class="btn btn-danger savebtn"
+																onclick="deleteproducts();">Delete</button>
+														</div>
+													</div>
+
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-xs-12 adddcomnde nebgclore ad-prdct-ng">
+								<div class="col-md-12 listcontras">
+									<!--<div class="serviceBox">
+												<div class="service-icon">
+														<img src="static/images/fbpartners/webic4.png">
+												</div>
+												 <div class="service-content">
+														<h3 class="title">How to Add User</h3>
+														<p class="description">
+																Add users for flexible management of sales operations. Having multiple users makes tracking a deal easier and helps in closing them faster. 
+														</p>
+												</div> 
+										</div>-->
+									<div class="newdesyjd">
+										<div class="col-md-12 padsmars">
+											<div class="col-md-6 padsmars">
+												<h3 class="dfrwes">Documents</h3>
+											</div>
+											<div class="col-md-6 padsmars jsdfdfff">
+												<a data-toggle="modal" data-target="#myModal"
+													style="cursor: pointer;"><img
+														src="static/images/fbpartners/plus.svg"
+														class="addplusid">Add</a>
+											</div>
+											<div class="scrollbar" id="style-3">
+												<div class="force-overflow">
+													<table class="table table-hover fiejsdcve">
+														<thead>
+															<tr>
+																<th scope="col"> Name</th>
+																<th scope="col" class="downloaddocss">Download</th>
+															</tr>
+														</thead>
+														<tbody class="docdis">
+															<tr>
+																<td class="ksidws">Mark</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Thornton</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Larry the Bird</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Otto</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Thornton</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Larry the Bird</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Mark</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Thornton</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Larry the Bird</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Otto</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Thornton</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Larry the Bird</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Mark</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Thornton</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Larry the Bird</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Otto</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Thornton</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+															<tr>
+																<td class="ksidws">Larry the Bird</td>
+																<td class="ksidws2"><a href="#" class="fildownad"><i
+																			class="fa fa-download"></i></a></td>
+															</tr>
+
+														</tbody>
+													</table>
+												</div>
+
+												<div id="myModal" class="modal fade emicalculators in" role="dialog"
+													style="padding-left: 0px;">
+													<div class="modal-dialog">
+
+														<!-- Modal content-->
+														<div class="modal-content">
+															<div class="panel-body">
+																<div class="panel with-nav-tabs panel-primary">
+
+																	<div class="panel-body">
+																		<div class="tab-content">
+																			<div class="" id="">
+																				<div class="modal-header">
+																					<h4 class="modal-title formes">
+																						upload product documents </h4>
+																					<p class="formesr"
+																						style="margin-bottom: 0 !important;">
+																						</p>
+																				</div>
+																				<div class="modal-body">
+																					<div class="row allmanpads">
+																						<div class="col-lg-12 padmarse">
+
+																							<div class="form-group">
+																								<label for="Email"
+																									class="cols-sm-2 control-label fbaform1">Document
+																									Name</label>
+																								<div class="cols-sm-10">
+																									<div
+																										class="input-group">
+
+																										<input
+																											type="text"
+																											class="form-control fbtxtcaption documentupload"
+																											name="Document Name"
+																											id="documentname"
+																											placeholder="Enter Document Name">
+																									</div>
+																								</div>
+																							</div>
+
+																							<div
+																								class="form-group uploadsec">
+																								<label
+																									for="comment">upload
+																									document</label>
+																								<div rows="10" cols="50"
+																									class="imgareas uploadtype">
+																									<span
+																										class="imgareas"><i
+																											class="fa fa-arrow-circle-o-up fa-3x">
+																										</i><br />Drop
+																										Files (or)Click
+																										here</span>
+
+																								</div>
+																							</div>
+
+																							<div class="modal-footer col-lg-12"
+																								style="border:none !important; padding-bottom: 0 !important;">
+																								<div class="form-group">
+																									<button
+																										type="submit"
+																										class="btn btn-success cancelbtn page documentupload"
+																										data-original-title=""
+																										data-page="product"
+																										onclick="createproddocument();"
+																										title="">Save</button>
+																									<button
+																										type="submit"
+																										data-dismiss="modal"
+																										class="btn btn-warning savebtn documentupload">Cancel
+																									</button></div>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+
+
+																			</div>
+																			<div class="tab-pane fade" id="tab2primary">
+																				<div class="modal-header">
+																					<h4 class="modal-title formes">
+																						Custom EMI </h4>
+																					<p class="formesr">Calculate your
+																						Custom EMI &amp; Total Interest
+																						Due</p>
+																				</div>
+																				<div class="modal-body">
+																					<div class="row allmanpads">
+																						<div class="col-lg-12 padmarse">
+																							<div class="form-group">
+																								<label for="Name"
+																									class="cols-sm-2 control-label fbaform1">Due
+																									Date</label>
+																								<div class="cols-sm-10">
+																									<div
+																										class="input-group">
+																										<input
+																											class="date form-control fbtxtcaption"
+																											id="cduedate"
+																											type="text"
+																											placeholder="Enter Due Date">
+																									</div>
+																								</div>
+																							</div>
+
+																							<div class="form-group">
+																								<label for="username"
+																									class="cols-sm-2 control-label fbaform1">EMI
+																									Amount</label>
+																								<div class="cols-sm-10">
+																									<div
+																										class="input-group">
+
+																										<input
+																											type="text"
+																											class="form-control fbtxtcaption"
+																											name="EMI Details"
+																											id="cEMIamount"
+																											placeholder="Enter EMI Amount">
+																									</div>
+																								</div>
+																							</div>
+
+																							<div class="modal-footer col-lg-12"
+																								style="border:none !important; padding-bottom: 0 !important;">
+																								<div class="form-group">
+																									<button
+																										type="submit"
+																										class="btn btn-success cancelbtn"
+																										data-original-title=""
+																										onclick="CreatecustomEMI();"
+																										title="">Calculate</button>
+																									<button
+																										type="submit"
+																										data-dismiss="modal"
+																										class="btn btn-warning savebtn">Cancel
+																									</button></div>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+
+
+
+
+
+
+
+														</div>
+
+													</div>
+												</div>
+
+											</div>
+										</div>
+
+									</div>
+
+
+
+
+								</div>
+
+
+							</div>
+						</div>
+				</div>
+			</div>
+	</div>
+	</section>
+	</div>
+	<div class="control-sidebar-bg"></div>
+
+	</div>
+	</main>
+	<div class="clear"></div>
+	<%- include .//partials/footer %>
+
+	<script src="framework/apps/fbpartners/js/jquery-2.2.3.min.js"></script>
+	<script src="framework/apps/fbpartners/js/bootstrap.min.js"></script>
+	<!-- <script src="framework/js/wajs.js"></script> -->
+	<script src="framework/js/dropzone.min.js"></script>
+	<script src="/public/popups/imagemanagement.js"></script>
+	<script src="/public/popups/documentmanagement.js"></script>
+	<!-- 
+<script src="/public/popups/documentmanagement1.js"></script> -->
+	<script src="framework/apps/fbpartners/js/functions.js"></script>
+	<script src="../framework/apps/fbpartners/js/fbpartnerserve.js"></script>
+	<script src="../framework/apps/fbpartners/js/fbpartnersUI.js"></script>
+	<script src="framework/apps/fbpartners/js/select2.min.js"></script>
+
+
+	<script>
+		//bindeditproduct();
+		datadisable();
+		
+		$('#Assigned').select2();
+		$('#manufacturer').select2();
+
+		//console.log(window.opener.document.getElementById('documentname').value);
+		// $('#Company').on('select','change', function() { 
+		//     //alert("am in");
+		//     getcontact($('#Company option:selected').text());
+		//     });
+
+		if (getCookie('fbbank') === 'Finbot') {
+			h = '/financesettings'
+		} else {
+			h = '/settings'
+		}
+		function cancel(){
+			$(location).attr('href', h);
+		}
+	</script>
+
+</body>
+
+</html>
