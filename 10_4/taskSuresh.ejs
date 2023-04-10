@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Api Keys - Finbot</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" href="framework/apps/fbpartners/css/bootstrap.min.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900|Roboto:100,300,400,500,700,900|Source+Sans+Pro:200,300,400,600,700,900"
+		rel="stylesheet">
+	<link rel="stylesheet" href="../framework/apps/fbpartners/css/style.css">
+
+	<style>
+		div {
+			text-transform: capitalize;
+		}
+
+		/* .twoprodyctmain {
+			height: 415px !important;
+		}
+		 */
+		.modal-header {
+			border: none !important;
+			background: #f7f7f7;
+			padding: 15px;
+			padding-left: 30px;
+		}
+
+		.uploadsec div.csvareas {
+			border: #e6ecef solid 1.5px;
+			padding: 40px 20px;
+			text-align: center;
+			cursor: pointer;
+			height: 220px;
+		}
+
+		span.csvareas {
+			padding-top: 5%;
+			display: block;
+		}
+
+		.bgcolor-white {
+			background-color: #FFF !important;
+			padding: 3% !important;
+		}
+
+		.msg {
+			display: none;
+			text-align: center !important;
+		}
+		.addacouts h6 {
+    height: auto;
+}
+.oneaccount {
+    padding: 15px;    height: 230px;
+    min-height: 230px;
+}
+	</style>
+</head>
+
+<body>
+	<%- include .//partials/header %>
+	<div class="wrapper">
+		<main class="l-main bg-color">
+			<div class="content-wrapper content-wrapper--with-bg">
+				<%- include .//partials/leftmenu %>
+				<div class="content-wrapper">
+					<section class="content-header rightmains">
+						<div class="row jduuuu">
+							<div class="col-lg-12 col-md-12 col-xs-12 allbgcloes">
+								<div class="col-md-4 padsmars">
+									<div class="oneicow" data-bg="" data-fixedtop=""><img
+											src="static/images/fbpartners/apikeyss.svg"></div>
+									<div class="uiooow">
+										<h1>Tasks </h1>
+										<p>Manage all the Tasks</p>
+									</div>
+								</div>
+								<div class="col-md-8 padsmars">
+									<div class="search_right">
+
+										<div class="keysearvhme">
+											<div class="c-search serchheres">
+												<a href="javascript:void(0);" style="cursor: pointer;"><i
+														class="fa fa-search sededed"></i></a>
+
+												<input class="c-search__input u-input searchform"
+													placeholder="Search..." type="text">
+
+											</div>
+										</div>
+										<ul class="addworksw">
+											<li><a href="add-taskS.ejs" style="cursor: pointer;"><img
+												src="static/images/fbpartners/addplus.svg" alt="add">API</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<hr class="lodnborder">
+						
+							<div class="row ">
+								<div class="col-lg-12 col-md-12 col-xs-12">
+									<div class="row allmanpads copnyboxb section_n myteams_row">
+									<div class="col-md-4 col-xs-12">
+										<div class=" apicol expnse_col">
+											<div class="adloadns"><a href="add-taskS.ejs">
+													<div class="col-md-12 col-xs-12 padsmars" id="Name">
+														<h3>User Interface Design</h3>
+														<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p>
+	
+													</div>
+													<div class="col-md-12 col-xs-12 padsmars">
+														<div class="anewloadnsrs1">
+															<div class="col-md-12 col-xs-12 padsmars amta1">
+																<div class="col-md-6 col-xs-12 padsmars">	
+																	<div class="lonmounhtsrs1">
+																		
+																		<h4>Start Date</h4>
+																		<p>12-12-2020</p>
+																	
+																	</div>
+																</div>	
+																<div class="col-md-6 col-xs-12 padsmars">
+																	<div class="paningamers1">
+																		
+																		<h4>End Date</h4>
+																		<p>15-12-2020</p>
+																		
+																	</div>
+																</div>	
+															</div>					
+														</div>
+													</div>
+												</a>
+												</div>							
+										</div>	
+									</div>
+				
+									<div class="clear"></div>
+
+								</div>
+									
+								</div>
+							</div>
+					
+						<div class="col-lg-12 col-md-12 col-xs-12 allboxesmaine ">
+							<!-- PAGINATION -->
+							<!-- <ul class="pagination pagination-lg">
+
+							</ul> -->
+						</div>
+				</div>
+				</section>
+			</div>
+			<div class="control-sidebar-bg"></div>
+	</div>
+	</main>
+	</div>
+	<%- include .//partials/footer %>
+
+
+	<script src="framework/apps/fbpartners/js/jquery-2.2.3.min.js"></script>
+	<script src="framework/apps/fbpartners/js/bootstrap.min.js"></script>
+	<script src="framework/apps/fbpartners/js/functions.js"></script>
+	<script src="../framework/apps/fbpartners/js/fbpartnersUI.js"></script>
+	<script src="framework/apps/fbpartners/js/fbpartnerserve.js"></script>
+	<script>
+        
+		check();
+		getNewTask()
+
+		$('.searchform').on('keyup change', function (e) {
+			var regEx = new RegExp($.map($('.searchform').val().trim().split(' '), function (v) {
+				return '(?=.*?' + v + ')';
+			}).join(''), 'i');
+
+			// select all list items, hide and filter by the regex then show
+			$('.ourservices').hide().filter(function () {
+				return regEx.exec($(this).text());
+			}).show();
+		});
+	</script>
+</body>
+
+</html>

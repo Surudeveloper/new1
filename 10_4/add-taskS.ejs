@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Add TaskS- Finbot</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="framework/apps/fbpartners/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="framework/apps/fbpartners/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900|Roboto:100,300,400,500,700,900|Source+Sans+Pro:200,300,400,600,700,900"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../framework/apps/fbpartners/css/style.css">
+    <link href="../framework/apps/fbpartners/css/select2.min.css" rel="stylesheet" />
+
+
+    <style>
+        span#refresh {
+            position: absolute;
+
+        }
+
+        span#refresh>i.fa.fa-copy {
+            position: relative;
+            top: -28px;
+            right: 0;
+            left: 530px;
+            cursor: pointer;
+            padding: 4px 10px;
+            /* border: 1.5px solid #16325c !important; */
+            font-size: 14px;
+            background-color: #fff !important;
+            color: #16325c !important;
+        }
+
+        span#refresh>i.fa.fa-refresh {
+            position: relative;
+            top: -28px;
+            right: 0;
+            left: 460px;
+            cursor: pointer;
+            padding: 4px 10px;
+            /* border: 1.5px solid #16325c !important; */
+            font-size: 14px;
+            background-color: #fff !important;
+            color: #16325c !important;
+        }
+
+        input.select2-search__field {
+            width: 100% !important;
+        }
+
+        .uploadsec2 div.imgarea {
+            overflow: auto;
+        }
+
+        .nebgclore,
+        .newbgcolo {
+            height: auto;
+        }
+
+        .select2-container {
+            width: 100% !important;
+        }
+
+        .ui-datepicker {
+            z-index: 999 !important;
+        }
+
+        .sd {
+            /* margin-right: 2%; */
+
+            float: left;
+            width: 47%;
+        }
+
+        .ed {
+            float: right;
+            width: 47%;
+            margin: 0;
+        }
+
+        .sd input,
+        .ed input {
+            width: 100% !important;
+        }
+
+        img.img-flag {
+            width: 32px;
+            /* border-radius: 50px; */
+        }
+
+        .select2-container--default .select2-results__option--highlighted[aria-selected] {
+            font-size: 16px !important;
+            font-weight: bolder;
+        }
+
+        input#publickey,
+        input#privatekey {
+            cursor: none !important;
+            cursor: not-allowed !important;
+        }
+    </style>
+
+</head>
+
+<body>
+    <%- include .//partials/header %>
+
+
+    <div class="wrapper">
+
+        <div id="loading"></div>
+        <main class="l-main bg-color">
+            <div class="content-wrapper content-wrapper--with-bg">
+                <%- include .//partials/leftmenu %>
+                <div class="content-wrapper">
+                    <section class="content-header rightmains">
+                        <div class="row allmanpads">
+                            <div class="col-lg-12 col-md-12 col-xs-12 padmarse stepsbgs">
+                                <h1>Add TaskS<span id="editinputs"> <i class="fa fa-pencil penslie"></i></span></h1>
+                            </div>
+                        </div>
+
+
+                        <div class="row allmanpads bgnones lsdjeijns foepeas">
+                            <div class="col-lg-9 col-md-9 col-xs-12 newbgcolo newujsldd">
+
+                                <div class="row allmanpads">
+                                    <div class="col-lg-12 padmarse">
+                                        <div class="form-group">
+                                            <label for="Name" class="cols-sm-2 control-label">
+                                                Name</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="Name"
+                                                        id="Name" data-valid="required"
+                                                        placeholder="Enter Name" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="type">Type:</label><br>
+                                            <select id="type" name="Type" style="box-sizing:content-box;">
+                                            <option selected value="">-- Choose the Type --</option>
+                                            <option value="Task">Task</option>
+                                            <option value="Question">Question</option>
+                                            <option value="Approve">Approve</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="stdate">Start Date :</label>
+                                            <input type="date" id="stdate" name="Start_Date">
+                                        </div><br>
+                                            <div class="form-group">
+                                                <label for="endate">End Date :</label>
+                                                <input type="date" id="endate" name="End_Date">
+                                            </div><br>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Summary">Summary:</label>
+                                            <textarea name="Summary" id="Summary" cols="30" rows="4" style="border-radius: 4px;"
+                                                placeholder="---Summary in brief---"></textarea>
+                                        </div><br>
+                                        <div class="form-group">
+                                            <label for="tOwner">Task Owner:</label><br>
+                                            <select id="tOwner" name="Type">
+                                            <option selected value="">-- Choose the Owner --</option>
+                                            <option value="Owner_1">Owner 1</option>
+                                            <option value="Owner_2">Owner 2</option>
+                                            <option value="Owner_3">Owner 3</option>
+                                            <option value="Owner_4">Owner 4</option>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <label for="declarations" text-align="left"><b>Warning:</b></label>
+                                            <input type="checkbox" id="declarations" name="declarations" style="cursor: pointer;" required>
+                                            <label for="declarations" style="font-size: 12px;"> Click here if the above information is correct.</label>
+                                        </div><br><br>
+                                        
+                                        <div class="modal-footer col-lg-12"
+                                            style="border:none !important; padding-bottom: 0 !important;padding-right: 0 !important;">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-success cancelbtn"	onclick="CreateNewTask();" data-original-title=""
+                                                    title="">Save</button>
+                                                    <a href="/createNewTask" type="submit" class="btn btn-warning savebtn">Cancel</a>
+                                                <!-- <button type="submit" class="btn btn-warning savebtn"  >Cancel</button>	 -->
+                                                <button type="submit" class="btn btn-danger savebtn"
+                                                    onclick="deleteproducts();">Delete</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-xs-12 adddcomnde nebgclore ad-api-ng">
+                                <div class="col-md-12 listcontras">
+
+                                    <div class="addemptytiles">
+                                        <img src="static/images/fbpartners/useremt.svg">
+                                        <div class="emptytls-content">
+                                            <h3 class="title">How to Add Api keys</h3>
+                                            <p class="description">
+                                                Api keys for flexible management of sales operations. Having multiple
+                                                Contest makes tracking a deal easier and helps in closing them faster.
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="control-sidebar-bg"></div>
+
+            </div>
+        </main>
+    </div>
+    <div class="clear"></div>
+    <%- include .//partials/footer %>
+
+    <script src="../framework/apps/fbpartners/js/jquery-2.2.3.min.js"></script>
+    <script src="../framework/apps/fbpartners/js/jquery-ui.min.js"></script>
+    <script src="framework/apps/fbpartners/js/bootstrap.min.js"></script>
+    <script src="framework/apps/fbpartners/js/functions.js"></script>
+    <script src="../framework/apps/fbpartners/js/fbpartnerserve.js"></script>
+    <script src="../framework/apps/fbpartners/js/fbpartnersUI.js"></script>
+    <script src="../framework/apps/fbpartners/js/select2.min.js"></script>
+
+    <script>
+        function copy(id) {
+            var copyText = document.getElementById(id);
+            copyText.disabled = false;
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            copyText.disabled = true;
+            // alert("Copied the text: " + copyText.value);
+        }
+        
+        $(document).ready(function () {
+            $('#refresh>.fa').tooltip({
+                placement: "top"
+            });
+            $('#Api_Type').select2();
+            $('#publickey,#privatekey').prop("disabled", true);
+            $('#csd,#ced,#publickey,#privatekey').val('').attr('readonly', !0).addClass('readonly');
+
+            //jquery ui datepicker---Contest
+            $("#csd").datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: new Date(),
+                maxDate: '1y',
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-50:+10",
+                numberOfMonths: 1,
+                onChange: function (selectedDate) {
+                    $("#ced").datepicker("option", "minDate", selectedDate);
+                },
+                onSelect: function (selected) {
+                    var dt = new Date(selected);
+                    dt.setDate(dt.getDate());
+                    $("#ced").datepicker("option", "minDate", dt);
+                }
+            });
+
+            $("#ced").datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: new Date(),
+                maxDate: '1y',
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-50:+10",
+                numberOfMonths: 1,
+                onChange: function (selectedDate) {
+                    $("#csd").datepicker("option", "minDate", selectedDate);
+                },
+            });
+
+
+
+
+            $('#refresh>.fa-refresh').click(function (e) {
+                e.preventDefault();
+                $('#publickey').val(guidGenerator());
+            });
+
+            $(".read").on('click', function () {
+                var trs = $(this).closest("tr").index();
+                if ($(this).prop("checked") == false) {
+                    $(`tbody tr:eq(${trs})`).find('td .write,td .delete').removeAttr('checked');
+                }
+            });
+
+            $(".write").on('click', function () {
+                var trs = $(this).closest("tr").index();
+                if ($(this).prop("checked") == true) {
+                    $(`tbody tr:eq(${trs})`).find('td .read').prop('checked', true);
+                } else if ($(this).prop("checked") == false) {
+                    $(`tbody tr:eq(${trs})`).find('td .read').removeAttr('checked');
+                }
+            });
+            $(".delete").on('click', function () {
+                var trs = $(this).closest("tr").index();
+                if ($(this).prop("checked") == true) {
+                    $(`tbody tr:eq(${trs})`).find('td .write,td .read').prop('checked', true);
+                } else if ($(this).prop("checked") == false) {
+                    $(`tbody tr:eq(${trs})`).find('td .write,td .read').removeAttr('checked');
+                }
+            });
+
+            datadisable();
+            bindeditapikey();
+        });
+    </script>
+
+</body>
+
+</html>
